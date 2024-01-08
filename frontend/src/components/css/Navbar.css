@@ -1,0 +1,43 @@
+/* .navbar img {
+    width: 189px;
+    height: 85px;
+    margin-left: 13px;
+    z-index: 2;
+    background-color: rebeccapurple;
+  } */
+
+ 
+  
+  .navbar img {
+    width: 100px;
+    height: 85px;
+    margin-left: 13px;
+    margin-top: 0px;
+    z-index: 2;
+  }
+  
+
+  
+
+ ul li a { 
+    /* background-color: rebeccapurple;  */
+    color: #0C0B0B;
+    font-size: 20px; /* Add a valid size value */
+    font-family: 'Poppins', sans-serif; /* Specify the font family and a fallback font */
+    font-weight: 300; /* Add a valid font weight value */
+    word-wrap: break-word;
+   }
+ 
+
+
+  
+  .Signin {
+    /* margin-left: 0px; */
+    color: '#0C0B0B';
+font-size: 20;
+font-family: 'Poppins';
+font-weight: '700';
+word-wrap: 'break-word'
+  }
+  
+  
