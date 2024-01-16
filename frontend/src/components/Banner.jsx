@@ -1,92 +1,127 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
+import bgRight from '../images/bgPerson.png'
+import { CiSearch } from "react-icons/ci";
+import { CiLocationOn } from "react-icons/ci";
+import { BsBriefcase } from "react-icons/bs";
+import { AiOutlineUpload } from "react-icons/ai";
+import {useDropzone} from 'react-dropzone'
+
 
 const Banner = () => {
+
+  const [search1, setSearch1] = useState("")
+  const [search2, setSearch2] = useState("")
+  const [search3, setSearch3] = useState("0")
+
+  const handleSubmit=()=>{
+    console.log(search1, search2, search3);
+  }
+
+  const [selectedFile, setSelectedFile] = useState(null)
+  
+  const onDrop = useCallback(acceptedFiles => {
+    // Do something with the files
+    setSelectedFile(acceptedFiles[0])
+    console.log(acceptedFiles[0])
+  }, [])
+  
+  const {getRootProps, getInputProps, open, fileRejections} = useDropzone({
+    noClick:true,
+    accept:{
+      'application/*':['.pdf','.doc','.docx']
+    },
+    maxSize:'2097152',
+    onDrop
+  });
+
+  const fileRejectionItems = fileRejections.map(({ file, errors }) => (
+    <li key={file.path}>
+      <ul>
+        {errors.map(e => (
+          <li key={e.code}>{e.message}</li>
+        ))}
+      </ul>
+    </li>
+  ));
+
+
   return (
-    <>
-
-   
-  <div className=" w-[100vw] h-[90vh] flex-col overflow-hidden relative flex ">
-  <div className="image-container">
-    <div style={{ display: 'flex' }}>
-   <div className='bg-orange-400'  style={{ width: '60%', height: '768px' }} >
-   </div  >
-      <img
-        src="https://img.freepik.com/free-photo/smiley-businesswoman-posing-city-with-arms-crossed_23-2148767033.jpg?w=360&t=st=1699219038~exp=1699219638~hmac=af49fa3255e772b9d005ac806427b56456b0b5ed78696d19e3587792ad7f25dd"
-        alt=""
-        style={{ width: '40%', height: '100%',opacity:'0.8'}}
-      />
-    </div>
-  </div>
-
-
-
-
-        <div className="absolute self-center flex flex-col items-center mt-10">
-          <div className="justify-center text-5xl leading-[118.8px] tracking-[3.6px] self-center max-w-[1094px]"
-           >
-            Find, Apply, Succeed
+    <div>
+      <div className='relative flex w-full h-[30vh] sm:h-[75vh]'>
+        <div className='bg-gradient-to-tr from-orange-400 to-orange-300/60 w-[55%] sm:w-[62%]'></div>
+        <img src={bgRight} alt="" className='w-[45%] sm:w-[38%]'/>
+        <div className='absolute left-[50%] -translate-x-[50%] top-[10%] sm:top-[15%] w-full sm:w-[75%]'>
+          <div className='flex flex-col justify-center gap-3 sm:gap-20'>
+            <h1 className='text-xl sm:text-6xl tracking-wider'>
+              Find, Apply, Succeed  
+            </h1>
+            <div className='flex flex-col self-center justify-center items-center mx sm:flex-row rounded-md sm:border-4 w-fit sm:w-full bg-white'>
+              <div className='flex justify-start items-center gap-x-2 sm:gap-x-5 w-full p-1 sm:p-2 sm:rounded-l-lg flex-0'>
+                <CiSearch className='text-lg sm:text-[60px]'/>
+                <input 
+                  type="search" 
+                  name="search1" 
+                  id="search1"
+                  onChange={(e)=>setSearch1(e.target.value)}
+                  value={search1}
+                  placeholder='Skills, Company or Job Title'
+                  className='w-full outline-none text-xs'
+                />
+              </div>
+              <div className='flex sm:justify-center items-center gap-x-2 w-full p-1 sm:p-2 flex-1 sm:border-l-4 sm:border-r-4'>
+                <CiLocationOn className='text-base sm:text-[60px]'/>
+                <input 
+                  type="search" 
+                  name="search2" 
+                  id="search2"
+                  onChange={(e)=>setSearch2(e.target.value)}
+                  value={search2}
+                  placeholder='Location'
+                  className='outline-none text-xs'
+                />
+              </div>
+              <div className='flex justify-between items-center gap-x-8  w-full p-1 sm:px-3 sm:p-2 sm:rounded-r-lg flex-0'>
+                <div className='flex justify-center items-center gap-x-2'>
+                  <BsBriefcase className='text-sm sm:text-[50px]'/>
+                  <select 
+                    name="experience" 
+                    id="experience" 
+                    className='outline-none opacity-60 text-xs'
+                    value={search3}
+                    onChange={(e)=>setSearch3(e.target.value)}
+                    >
+                    <option value='0' disabled hidden>Experience</option>
+                    <option value="fresher">Fresher</option>
+                    <option value="1+ yoe">1+ Year</option>
+                    <option value="2+ yoe">2+ Year</option>
+                  </select>
+                </div>
+                <button className='bg-[#15AA6A] text-white px-2 py-[2px] sm:px-5 sm:py-1 text-xs rounded-lg flex justify-center items-center' onClick={handleSubmit}>
+                  Search
+                </button>
+              </div>
+            </div>
+            <div {...getRootProps()} className='self-center sm:self-end'>
+              <input {...getInputProps()} />
+                <button className='flex flex-row justify-center items-center gap-x-1 sm:gap-x-3 font-semibold bg-[#46d597] opacity-90 sm:bg-opacity-60 w-fit sm:px-3 sm:py-4 rounded-lg text-[8px] p-1 px-2'
+                  onClick={open}
+                >
+                  <p className='text-xs sm:text-2xl'>Upload your resume now</p>
+                  <AiOutlineUpload className='text-sm sm:text-5xl'/>
+                </button>
+                <aside className='text-base font-semibold'>
+                  <ul className='text-red-500'>{fileRejectionItems}</ul>
+                </aside>
           </div>
-          <div className="bg-white self-stretch flex flex-col mt-7 w-[80vw] h-[13vh] px-5 py-1 rounded-xl border-[4px] border-solid border-neutral-700 border-opacity-20 max-md:max-w-full max-md:mt-10">
-            <div className="self-center flex w-full max-w-[1425px] items-start justify-between gap-5 max-md:max-w-full max-md:flex-wrap max-md:justify-center">
-        <div className="self-center flex items-start gap-5 my-auto">
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/61322ece-125c-42ba-aa39-eadfc560f099?apiKey=98c2e51ab1a04825837c41320a839326&"
-            className="aspect-[0.71] object-contain object-center w-[20px] overflow-hidden self-stretch max-w-full"
-          />
-          <div className="justify-center text-black text-opacity-40 text-xs leading-6 tracking-wider self-center max-w-[323px] grow shrink-0 basis-auto my-auto">
-            <input type="text" placeholder='Skills, Company or Job Title'/>
             
           </div>
         </div>
-        <div className="self-stretch flex items-start justify-between gap-3.5 max-md:justify-center">
-          <div className="bg-black bg-opacity-40 self-stretch w-[3px] h-[11vh] grow shrink-0 basis-auto" />
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/141a3b21-0e16-474f-997d-fe2de2a1e53f?apiKey=98c2e51ab1a04825837c41320a839326&"
-            className="aspect-square object-contain object-center w-[25px] overflow-hidden self-center max-w-full my-auto"
-          />
-          <div className="text-black text-opacity-40 text-xs leading-6 tracking-wider self-center my-auto whitespace-nowrap">
-          <input type="text" placeholder='Location'/>
-          </div>
-        </div>
-
-        {/* Experience box */}
-        <div className="self-stretch flex items-start justify-between gap-1.5 max-md:justify-center">
-          <div className="bg-black bg-opacity-40 self-stretch w-[3px] h-[11vh] grow shrink-0 basis-auto" />
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/c67c95cb-6e5d-4ab9-baa1-4798b335396e?apiKey=98c2e51ab1a04825837c41320a839326&"
-            className="aspect-[1.52] object-contain object-center w-[25px] fill-black overflow-hidden self-center max-w-full my-auto"
-          />
-
-          <div className="text-black text-opacity-40 text-xs leading-6 tracking-wider my-auto">
-            Experience
-          </div>
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/85da70e9-e50e-44da-a998-b6bbdc7ddb71?apiKey=98c2e51ab1a04825837c41320a839326&"
-            className="aspect-[1.78] object-contain object-center w-4 fill-zinc-800 fill-opacity-20 overflow-hidden self-center max-w-full my-auto"
-          />
-        </div>
-        <button className="text-stone-950 text-sm self-center bg-emerald-600 bg-opacity-90 w-[7vw] p-2 max-w-full my-auto whitespace-nowrap max-md:pl-2.5">
-          Search
-        </button>
+      </div>
+    <div>
+      
       </div>
     </div>
-  </div>
-</div>
-
-        
-   
-
-
-
-      </>
     
-
-
-
   );
 };
 

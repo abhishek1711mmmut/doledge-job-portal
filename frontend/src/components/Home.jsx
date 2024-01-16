@@ -9,7 +9,7 @@ import Footer from './Footer'
 function Home(props) {
   return (
     <div className="bg-white flex flex-col">
-      <div className="self-stretch flex w-full flex-col mt-5 max-md:max-w-full">
+      <div className="self-stretch flex w-full flex-col max-md:max-w-full">
         <Navbar/>
         <Banner/>
         <IndustriesHiring/>
