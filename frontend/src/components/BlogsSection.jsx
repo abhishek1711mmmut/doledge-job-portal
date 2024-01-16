@@ -24,25 +24,25 @@ const BlogsSection = () => {
     ]
 
     return (
-        <div className='my-10 sm:my-20 flex flex-col justify-center items-center gap-8'>
+        <div className='my-10 md:my-14 lg:my-20 flex flex-col justify-center items-center gap-8'>
             <h1 className='text-2xl sm:text-4xl font-bold leading-[30px] sm:leading-[66px] tracking-[2px]'>
                 Latest from Blogs
             </h1>
-            <div className='grid grid-cols-1 sm:grid-cols-3 gap-8 w-[80%] mx-auto'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-10 w-[80%] mx-auto'>
                 {
                     blogs.map((blog, index)=>(
-                        <div key={index} className='flex flex-col gap-3 sm:gap-5 p-3 border-2 shadow-lg'>
-                            <div>
-                                <img src={blog.img} alt="" className='w-full h-full object-contain object-center'/>
+                        <div key={index} className='flex flex-col gap-3 sm:gap-5 p-3 border-2 shadow-lg rounded-lg '>
+                            <div className=''>
+                                <img src={blog.img} alt="" className='w-full h-full object-contain object-center rounded-lg'/>
                             </div>
                             <div className='flex flex-col gap-3 sm:gap-5'>
                                 <h1 className='text-xl sm:text-3xl font-semibold text-left'>
                                     {blog.title}
                                 </h1>
-                                <h2 className='text-left font-semibold'>
+                                <h2 className='text-left font-semibold md:text-xl lg:text-base'>
                                     Category : <span className='text-orange-500'>{blog.category}</span>
                                 </h2>
-                                <p className='text-justify'>
+                                <p className='text-justify md:text-xl lg:text-base'>
                                     {blog.content}
                                 </p>
                             </div>

@@ -33,11 +33,11 @@ const CompaniesHiring = () => {
 
     return (
 
-        <div className='flex flex-col my-10'>
-            <h1 className='text-4xl font-bold leading-[66px] tracking-[2px] '>
+        <div className='flex flex-col my-5 md:my-8 lg:my-10'>
+            <h1 className='text-xl md:text-2xl lg:text-4xl font-bold leading-[66px] tracking-[2px] '>
                 Top Industries Hiring Now
             </h1>
-            <div className='grid grid-cols-2 sm:grid-cols-6 gap-5 my-10'>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5 my-3 sm:my-10'>
             {
                 companies.map((company, index)=>(
                     <div key={index} className='flex flex-col gap-y-1 sm:gap-y-3 border-2 border-solid border-black border-opacity-10 rounded-2xl p-1 sm:p-3'>

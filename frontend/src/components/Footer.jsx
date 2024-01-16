@@ -60,7 +60,7 @@ const Footer = () => {
 
   return (
     <div className="bg-[#f2f6fd]">
-      <div className="grid grid-cols-1 sm:grid-cols-4 w-[90%] mx-auto my-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-[90%] items-start mx-auto my-10">
       {
         footer.map((item, index)=>(
           <div key={index} className="flex flex-col justify-center items-center sm:items-start gap-4 mb-8">
@@ -81,11 +81,11 @@ const Footer = () => {
           </div>
         ))
       }
-      <div className="flex flex-col justify-start items-center sm:items-start gap-4">
+      <div className="flex flex-col justify-center items-center sm:items-start gap-4 mb-8">
         <h1 className="text-lg font-bold">
           Contact Us
         </h1>
-        <ul className="flex flex-col items-start justify-start gap-y-2 text-gray-600">
+        <ul className="flex flex-col items-center sm:items-start justify-start gap-y-3 text-gray-600">
           <Link>
             <li className="flex justify-center items-center gap-x-3">
               <FaLocationDot/>
@@ -93,25 +93,25 @@ const Footer = () => {
                 Plot no.-115 Sector 15, Noida 201301
               </p>
             </li>
-            </Link>
-            <Link>
+          </Link>
+           <Link>
             <li className="flex justify-center items-center gap-x-3">
               <LuMail/>
               <p>
                 support@doledge.com
               </p>
             </li>
-            </Link>
-            <Link>
+           </Link>
+           <Link>
             <li className="flex justify-center items-center gap-x-3 font-semibold">
               <IoMdCall/>
               <p>
                 +91-931-167-9499
               </p>
             </li>
-            </Link>
+           </Link>
             
-            <li className="flex justify-center items-center gap-x-3">
+            <span className="flex justify-center items-center gap-x-5">
               <Link>
                 <FaFacebookSquare color="#fb923c" size={28}/>
               </Link>
@@ -124,7 +124,7 @@ const Footer = () => {
               <Link>
                 <FaLinkedin color="#fb923c" size={28}/>
               </Link>
-            </li>
+            </span>
         </ul>
       </div>
       </div>

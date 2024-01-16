@@ -27,15 +27,15 @@ const ExploreServices = () => {
 
   return (
     <div className='w-[90%] mx-auto'>
-      <h1 className='text-center text-2xl sm:text-4xl font-bold leading-10 sm:leading-[66px] sm:tracking-[2px]'>
+      <h1 className='text-center text-2xl md:text-3xl lg:text-4xl font-bold leading-10 sm:leading-[66px] sm:tracking-[2px]'>
         Explore Our Premium Services
       </h1>
-      <div className='grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-20 m-5 sm:mt-10'>
+      <div className='grid grid-cols-1 lg:grid-cols-3 gap-10 sm:gap-20 m-5 sm:mt-10 lg:mt-16'>
         {
           services.map((service, index)=>(
-            <div key={index} className='flex flex-col gap-4 shadow-[rgba(0,_0,_0,_0.24)_3px_3px_8px]'>
+            <div key={index} className='flex flex-col gap-4 shadow-[rgba(0,_0,_0,_0.24)_3px_3px_8px] md:p-4 lg:p-0 rounded-lg'>
                 <div className=''>
-                  <img src={service.img} alt="" className='h-full w-full object-contain object-center mx-auto'/>
+                  <img src={service.img} alt="" className='h-full w-full object-contain object-center mx-auto rounded-lg'/>
                 </div>
                 <div className='flex flex-col gap-5 pb-4 px-4'>
                   <h1 className='font-semibold sm:font-normal text-xl sm:text-3xl'>

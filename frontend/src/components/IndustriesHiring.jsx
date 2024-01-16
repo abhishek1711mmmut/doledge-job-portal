@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import CompaniesHiring from './CompaniesHiring'
 import { FaChevronRight } from "react-icons/fa";
 import discoverCareer from '../images/discoverCareer.png'
@@ -76,15 +75,15 @@ const IndustriesHiring = () => {
 
     return (
         
-        <div className="self-center flex w-[100vw]  flex-col sm:mt-30 p-2 sm:p-12 max-md:max-w-full">
+        <div className="self-center flex flex-col sm:mt-30 p-2 sm:p-12 w-full">
             <div className="justify-center text-black text-xl sm:text-3xl font-bold leading-[66px] tracking-wide sm:tracking-[2px] self-center  max-md:max-w-full">
                 Top Industries Hiring Now
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-6 mx-auto gap-3 sm:gap-6 mb-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mx-auto gap-3 md:gap-4 lg:gap-6 md:my-20">
                 {
                     industriesHiring.map((item, index)=>(
-                        <div className="sm:w-[11vw] sm:h-[13vh] bg-white flex flex-col items-start justify-center p-2 rounded-xl border-2 border-solid border-black border-opacity-10" key={index}>
+                        <div className="bg-white flex flex-col items-start justify-center p-2 md:p-4 rounded-xl border-2 border-solid border-black border-opacity-10" key={index}>
                         
                             <div className="justify-center text-black text-[15px] font-bold  tracking-wider self-start">
                                 {item.title1}
@@ -96,7 +95,7 @@ const IndustriesHiring = () => {
                                 </div>
                                 <img
                                     loading="lazy"
-                                    src={item.imgUrl}
+                                    src={item.imgUrl} alt=''
                                     className="aspect-[0.57] object-contain object-center w-[0.5vw] mb-1  ml-2 fill-sky-500 overflow-hidden self-end "
                                 />
                             </div>
@@ -105,7 +104,7 @@ const IndustriesHiring = () => {
                 }
                 {
                     industriesHiring.map((item, index)=>(
-                        <div className="sm:w-[11vw] sm:h-[13vh] bg-white flex flex-col items-start justify-center p-2 rounded-xl border-2 border-solid border-black border-opacity-10" key={index}>
+                        <div className="bg-white flex flex-col items-start justify-center p-2 md:p-4 rounded-xl border-2 border-solid border-black border-opacity-10" key={index}>
                         
                             <div className="justify-center text-black text-[15px] font-bold  tracking-wider self-start">
                                 {item.title1}
@@ -117,7 +116,7 @@ const IndustriesHiring = () => {
                                 </div>
                                 <img
                                     loading="lazy"
-                                    src={item.imgUrl}
+                                    src={item.imgUrl} alt=''
                                     className="aspect-[0.57] object-contain object-center w-[0.5vw] mb-1  ml-2 fill-sky-500 overflow-hidden self-end "
                                 />
                             </div>
@@ -127,28 +126,28 @@ const IndustriesHiring = () => {
             </div>
 
             {/* Discover Your Dream Career */}
-            <div className='relative bg-gradient-to-l from-[#DDA2A4] to-[#EDCCCE]/30 flex justify-start items-center sm:gap-5 w-full sm:w-[90%] mx-auto rounded-2xl sm:p-3 mt-8 sm:mt-20 h-[140px]'>
-                <div className='w-[150px] sm:w-[400px] hidden sm:block'>
+            <div className='relative bg-gradient-to-l from-[#DDA2A4] to-[#EDCCCE]/30 flex justify-start items-center lg:gap-5 w-full lg:w-[90%] mx-auto rounded-2xl sm:p-3 mt-10 md:mt-12 lg:mt-20 h-[140px] md:h-[250px] lg:h-full'>
+                <div className='w-[150px] md:w-[300px] lg:w-[400px] hidden lg:block'>
                     <img src={discoverCareer} alt="" className=' scale-x-90 scale-y-[80%] object-contain'/>
                 </div>
-                <p className='text-[11px] sm:text-2xl font-bold pl-2 sm:pl-0 sm:text-left'>
+                <p className='text-[11px] md:text-xl lg:text-2xl font-bold pl-2 sm:pl-0 sm:text-left'>
                     Discover Your Dream Career:
                     <br />
                     Search, Find, Succeed
                 </p>
-                <div className='absolute right-3 sm:right-[7%] bg-[#FEFEFE] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] px-2 py-3 sm:px-4 sm:py-12 rounded-md sm:rounded-2xl'>
-                    <div className='grid grid-cols-2 gap-2 sm:gap-4'>
+                <div className='absolute right-3 md:right-[4%] lg:right-[7%] bg-[#FEFEFE] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] px-2 py-3 md:px-3 lg:px-4 md:py-8 lg:py-12 rounded-md sm:rounded-2xl'>
+                    <div className='grid grid-cols-2 gap-2 md:gap-3 lg:gap-4'>
                         {
                             careerDiscover.map((item, index)=>(
-                                <div className='flex flex-col items-start justify-center shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] p-1 sm:px-3 sm:py-2 rounded-md sm:rounded-xl'>
+                                <div key={index} className='flex flex-col items-start justify-center shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] p-1 md:px-1 lg:px-3 sm:py-2 rounded-md sm:rounded-xl'>
                                     <h1 className='text-[8px] sm:text-base sm:font-bold'>
                                         {item.title1}
                                     </h1>
                                     <div className='flex justify-center items-center gap-x-4'>
-                                        <p className='text-[8px]'>
+                                        <p className='text-[8px] lg:text-base'>
                                             {item.jobs}
                                         </p>
-                                        <FaChevronRight color='#2196F3' className='text-[8px]'/>
+                                        <FaChevronRight color='#2196F3' className='text-[8px] lg:text-base'/>
                                     </div>
                                 </div>
                             ))
@@ -158,15 +157,15 @@ const IndustriesHiring = () => {
             </div>
 
             {/* ARE YOU AN EMPLOYER ? */}
-            <div className='mt-16 sm:mt-28 bg-gradient-to-r from-[#F69F60] to-[#f8f4f2] flex justify-around items-center py-10 rounded-2xl border border-orange-900/30'>
-                <h1 className='text-[14px] sm:text-4xl font-bold text-left'>
+            <div className='mt-16 sm:mt-28 bg-gradient-to-r from-[#F69F60] to-[#f8f4f2] flex p-2 justify-around items-center py-10 rounded-2xl border border-orange-900/30'>
+                <h1 className='text-[14px] md:text-2xl lg:text-4xl font-bold text-left'>
                     ARE YOU AN EMPLOYER ?
                 </h1>
-                <div className='text-[12px] sm:text-2xl font-medium flex flex-col sm:flex-row justify-center items-center gap-y-3 sm:gap-10'>
-                    <button className='bg-[#2CB176] w-[150px] h-[35px] sm:w-[380px] sm:h-[90px] rounded-xl flex justify-center items-center'>
+                <div className='text-[12px] md:text-xl lg:text-2xl font-medium flex flex-col lg:flex-row justify-center items-center gap-y-3 sm:gap-10'>
+                    <button className='bg-[#2CB176] w-[150px] h-[35px] sm:w-[200px] sm:h-[50px] md:h-[70px] lg:w-[380px] lg:h-[90px] rounded-xl flex justify-center items-center'>
                         Search your candidate
                     </button>
-                    <button className='bg-[#DDA2A4] w-[150px] h-[35px] sm:w-[380px] sm:h-[90px] rounded-xl flex justify-center items-center'>
+                    <button className='bg-[#DDA2A4] w-[150px] h-[35px] sm:w-[200px] sm:h-[50px] md:h-[70px] lg:w-[380px] lg:h-[90px] rounded-xl flex justify-center items-center'>
                         Post a Job
                     </button>
                 </div>
